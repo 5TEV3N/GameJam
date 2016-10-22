@@ -16,9 +16,9 @@ public class WhiteTileCheckGreen : MonoBehaviour
 
     void Update()
     {
-        if (whiteTileManager.greenNearWhiteTile == 4)
+        if (whiteTileManager.greenNearWhiteTile >= 4)
         {
-            transform.position = Vector3.Lerp(transform.position, new Vector3(xPos, 2, zPos), Time.deltaTime);
+            transform.position = Vector3.Lerp(transform.position, new Vector3(xPos, 2, zPos), 0.1f);
         }
     }
 

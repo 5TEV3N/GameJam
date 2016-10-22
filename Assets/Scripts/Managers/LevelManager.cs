@@ -26,6 +26,7 @@ public class LevelManager : MonoBehaviour
     {
         if (tileManager.winConditionMet == true)
         {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             print("On to the next Level!");
         }
     }

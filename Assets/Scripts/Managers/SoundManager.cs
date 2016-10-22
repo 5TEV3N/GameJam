@@ -16,6 +16,6 @@ public class SoundManager : MonoBehaviour
     public void PlayDing()
     {
         //soundDing.Play();
-        print("asdf");
+        print("Play a ding!");
     }
 }

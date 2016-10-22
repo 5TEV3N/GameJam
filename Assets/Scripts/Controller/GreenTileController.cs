@@ -10,7 +10,6 @@ public class GreenTileController : MonoBehaviour
 
     public Material greenMat;
     public Material redMat;
-    public Vector3 newPosition;
 
     public bool lerpStart = false;
 
@@ -28,7 +27,7 @@ public class GreenTileController : MonoBehaviour
     {
         if (lerpStart == true)
         {
-            transform.position = Vector3.Lerp(gameObject.transform.position, new Vector3(xPos, 0, zPos), Time.deltaTime);
+            transform.position = Vector3.Lerp(gameObject.transform.position, new Vector3(xPos, 0, zPos), 0.1f);
         }
     }
 

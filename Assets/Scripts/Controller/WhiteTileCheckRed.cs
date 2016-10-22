@@ -18,7 +18,7 @@ public class WhiteTileCheckRed : MonoBehaviour
     {
         if (whiteTileManager.redNearWhiteTile >= 4)
         {
-            transform.position = Vector3.Lerp(transform.position, new Vector3(xPos, 2, zPos), Time.deltaTime);
+            transform.position = Vector3.Lerp(transform.position, new Vector3(xPos, 2, zPos), 0.1f);
         }
     }
 
