@@ -9,6 +9,7 @@ public class LevelManager : MonoBehaviour
     CameraLerpEnding cameraLerpEnding;
 
     public GameObject mainCam;
+    public float GameEndtimer;
 
     void Awake()
     {
@@ -29,7 +30,12 @@ public class LevelManager : MonoBehaviour
     {
         if (tileManager.winConditionMet == true)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            GameEndtimer -= Time.deltaTime;
+            if (GameEndtimer<= 0)
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            }
+
             if (SceneManager.GetActiveScene().buildIndex == 7)
             {
                 cameraLerpEnding = GameObject.FindGameObjectWithTag("T_Camera").GetComponent<CameraLerpEnding>();

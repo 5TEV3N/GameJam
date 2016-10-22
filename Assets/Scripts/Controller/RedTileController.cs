@@ -4,6 +4,7 @@ using System.Collections;
 public class RedTileController : MonoBehaviour
 {
     TileManager tileManager;
+    SoundManager soundManager;
 
     public float xPos;
     public float zPos;
@@ -19,6 +20,8 @@ public class RedTileController : MonoBehaviour
     {
         tileRend = GetComponent<MeshRenderer>();
         tileManager = GameObject.FindGameObjectWithTag("T_TileManager").GetComponent<TileManager>();
+        soundManager = GameObject.FindGameObjectWithTag("T_SoundManager").GetComponent<SoundManager>();
+
         xPos = gameObject.transform.position.x;
         zPos = gameObject.transform.position.z;
     }
@@ -39,6 +42,8 @@ public class RedTileController : MonoBehaviour
             gameObject.tag = "T_Green";
             tileManager.redTilesList.Remove(gameObject);
             tileManager.greenTilesList.Add(gameObject);
+
+            soundManager.PlayDing();
 
             lerpStart = true;
         }

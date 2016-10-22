@@ -18,7 +18,6 @@ public class TileManager : MonoBehaviour
     public bool redGoal;
     public bool greenGoal;
     public bool winConditionMet;
-    public bool winConditionMetSound;
 
     void Awake()
     {
@@ -31,13 +30,6 @@ public class TileManager : MonoBehaviour
         countGreenTilesLength = greenTilesList.Count;
 
         CorrectTileContainer();
-
-        if (winConditionMetSound == true)
-        {
-            soundManager.PlayDing();
-            winConditionMetSound = false;
-        }
-
     }
 
     public void CorrectTileContainer()
@@ -47,7 +39,6 @@ public class TileManager : MonoBehaviour
             if (countRedTilesLength == 0)
             {
                 winConditionMet = true;
-                winConditionMetSound = true;
             }
         }
 
