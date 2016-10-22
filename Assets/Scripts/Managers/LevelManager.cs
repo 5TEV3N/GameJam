@@ -20,6 +20,10 @@ public class LevelManager : MonoBehaviour
     void Update()
     {
         WinCondition();
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
     }
 
     public void ReloadLevel ()
