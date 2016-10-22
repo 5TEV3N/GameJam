@@ -27,7 +27,6 @@ public class WhiteTileCheckRed : MonoBehaviour
         if (other.gameObject.tag == "T_Red")
         {
             whiteTileManager.redNearWhiteTile++;
-            print("Red Tile Near me");
         }
     }
 }

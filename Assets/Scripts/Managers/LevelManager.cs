@@ -9,11 +9,12 @@ public class LevelManager : MonoBehaviour
     CameraLerpEnding cameraLerpEnding;
 
     public GameObject mainCam;
-    public float GameEndtimer;
+    private float GameEndtimer;
 
     void Awake()
     {
         tileManager = GameObject.FindGameObjectWithTag("T_TileManager").GetComponent<TileManager>();
+        GameEndtimer =  0.6f;
     }
 
     void Update()
