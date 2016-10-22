@@ -5,7 +5,8 @@ using System.Collections.Generic;
 
 public class TileManager : MonoBehaviour
 {
-    // http://answers.unity3d.com/questions/141847/removing-objects-from-a-list-in-c.html
+    LevelManager levelManager;
+
     [Header ("Lists")]
     public List<GameObject> redTilesList = new List <GameObject>();
     public List<GameObject> greenTilesList = new List <GameObject>();
@@ -16,6 +17,11 @@ public class TileManager : MonoBehaviour
 
     public bool redGoal;
     public bool greenGoal;
+
+    void Awake()
+    {
+        levelManager = GameObject.FindGameObjectWithTag("T_LevelManager").GetComponent<LevelManager>();
+    }
 
     void Update()
     {
@@ -31,7 +37,7 @@ public class TileManager : MonoBehaviour
         {
             if (countRedTilesLength == 0)
             {
-                print("green win");
+                levelManager.WinCondition();
             }
         }
 
@@ -39,7 +45,7 @@ public class TileManager : MonoBehaviour
         {
             if (countGreenTilesLength == 0)
             {
-                print("red win");
+                levelManager.WinCondition();
             }
         }
     }

@@ -8,4 +8,9 @@ public class LevelManager : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); //Loads the current scene again
     }
+
+    public void WinCondition()
+    {
+        print("Level Complete!");
+    }
 }
