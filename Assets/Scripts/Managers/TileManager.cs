@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 public class TileManager : MonoBehaviour
 {
-    LevelManager levelManager;
+    SoundManager soundManager;
 
     [Header ("Lists")]
     public List<GameObject> redTilesList = new List <GameObject>();
@@ -17,10 +17,12 @@ public class TileManager : MonoBehaviour
 
     public bool redGoal;
     public bool greenGoal;
+    public bool winConditionMet;
+    public bool winConditionMetSound;
 
     void Awake()
     {
-        levelManager = GameObject.FindGameObjectWithTag("T_LevelManager").GetComponent<LevelManager>();
+        soundManager = GameObject.FindGameObjectWithTag("T_SoundManager").GetComponent<SoundManager>();
     }
 
     void Update()
@@ -28,16 +30,24 @@ public class TileManager : MonoBehaviour
         countRedTilesLength = redTilesList.Count;
         countGreenTilesLength = greenTilesList.Count;
 
-        CorrecTileContainer();
+        CorrectTileContainer();
+
+        if (winConditionMetSound == true)
+        {
+            soundManager.PlayDing();
+            winConditionMetSound = false;
+        }
+
     }
 
-    public void CorrecTileContainer()
+    public void CorrectTileContainer()
     {
         if (greenGoal == true)
         {
             if (countRedTilesLength == 0)
             {
-                levelManager.WinCondition();
+                winConditionMet = true;
+                winConditionMetSound = true;
             }
         }
 
@@ -45,7 +55,7 @@ public class TileManager : MonoBehaviour
         {
             if (countGreenTilesLength == 0)
             {
-                levelManager.WinCondition();
+                winConditionMet = true;
             }
         }
     }

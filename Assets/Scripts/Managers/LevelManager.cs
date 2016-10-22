@@ -4,6 +4,19 @@ using System.Collections;
 
 public class LevelManager : MonoBehaviour
 {
+    SoundManager soundManager;
+    TileManager tileManager;
+
+    void Awake()
+    {
+        tileManager = GameObject.FindGameObjectWithTag("T_TileManager").GetComponent<TileManager>();
+    }
+
+    void Update()
+    {
+        WinCondition();
+    }
+
     public void ReloadLevel ()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); //Loads the current scene again
@@ -11,6 +24,9 @@ public class LevelManager : MonoBehaviour
 
     public void WinCondition()
     {
-        print("Level Complete!");
+        if (tileManager.winConditionMet == true)
+        {
+            print("On to the next Level!");
+        }
     }
 }
