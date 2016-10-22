@@ -6,6 +6,9 @@ public class LevelManager : MonoBehaviour
 {
     SoundManager soundManager;
     TileManager tileManager;
+    CameraLerpEnding cameraLerpEnding;
+
+    public GameObject mainCam;
 
     void Awake()
     {
@@ -27,7 +30,11 @@ public class LevelManager : MonoBehaviour
         if (tileManager.winConditionMet == true)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-            print("On to the next Level!");
+            if (SceneManager.GetActiveScene().buildIndex == 7)
+            {
+                cameraLerpEnding = GameObject.FindGameObjectWithTag("T_Camera").GetComponent<CameraLerpEnding>();
+                cameraLerpEnding.lerpCam();
+            }
         }
     }
 }
